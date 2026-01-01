@@ -9,7 +9,9 @@ function increment(){
 }
 
 function decrement(){
-    count.innerText = --storeCount;
+    if(storeCount > 0){
+        count.innerText = --storeCount;
+    }
 }
 
 function reset(){
