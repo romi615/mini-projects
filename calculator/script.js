@@ -28,3 +28,16 @@ buttons.forEach(button => {
 });
 
 
+function handleNumber(value){
+    if(operator === ""){
+        firsNumber += value;
+        input.value = firsNumber;
+    }
+     else {
+        secondNumber += value;
+        input.value = secondNumber;
+     }
+
+}
+
+
