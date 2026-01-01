@@ -1,0 +1,46 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculator{
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+.calculator form {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.calculator form input {
+    width: 100%;
+    padding: 5px;
+    outline-color: blue;
+    font-size: 18px;
+    text-align: right;
+}
+.btnBox{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem
+    ;
+}
+
+.btn {
+    padding: 10px 15px;
+    cursor: pointer;
+}
