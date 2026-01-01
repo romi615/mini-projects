@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll(".btn");
 const input = document.getElementById("userInput")
 
-let firsNumber = "";
+let firstNumber = "";
 let secondNumber = "";
 let operator = ""
 
@@ -30,8 +30,8 @@ buttons.forEach(button => {
 
 function handleNumber(value){
     if(operator === ""){
-        firsNumber += value;
-        input.value = firsNumber;
+        firstNumber += value;
+        input.value = firstNumber;
     }
      else {
         secondNumber += value;
@@ -42,15 +42,15 @@ function handleNumber(value){
 
 
 function handleOperator(value){
-    if(firsNumber === "") return;
+    if(firstNumber === "") return;
 
     operator = value;
 }
 
 function calculate(){
-    if(firsNumber === "" || secondNumber === "" || operator ==="") return ;
+    if(firstNumber === "" || secondNumber === "" || operator ==="") return ;
 
-    const num1 = Number(firsNumber);
+    const num1 = Number(firstNumber);
     const num2 = Number(secondNumber)
 
     let result;
@@ -75,9 +75,17 @@ function calculate(){
     }
 
     input.value = result;
-    firsNumber = result.toString();
+    firstNumber = result.toString();
     secondNumber = ""
     operator = "";
+}
+
+
+function reset(){
+firstNumber = "";
+  secondNumber = "";
+  operator = "";
+
 }
 
 
