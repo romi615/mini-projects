@@ -8,4 +8,9 @@ function increment(){
     count.innerText = ++storeCount;
 }
 
+function decrement(){
+    count.innerText = --storeCount;
+}
+
 incrementBtn.addEventListener('click',increment);
+decrementBtn.addEventListener('click',decrement);
