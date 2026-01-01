@@ -47,4 +47,37 @@ function handleOperator(value){
     operator = value;
 }
 
+function calculate(){
+    if(firsNumber === "" || secondNumber === "" || operator ==="") return ;
+
+    const num1 = Number(firsNumber);
+    const num2 = Number(secondNumber)
+
+    let result;
+
+    switch(operator){
+        case "+":
+            result = num1+num2
+            break;
+            case "-":
+            result = num1-num2
+            break;case "X":
+            result = num1*num2
+            break;
+            case "/":
+                if(num2===0){
+                    input.value = "Error";
+                    reset()
+                    return;
+                }
+            result = num1/num2
+            break;
+    }
+
+    input.value = result;
+    firsNumber = result.toString();
+    secondNumber = ""
+    operator = "";
+}
+
 
