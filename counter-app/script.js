@@ -12,5 +12,12 @@ function decrement(){
     count.innerText = --storeCount;
 }
 
+function reset(){
+    storeCount = 0;
+    count.innerText = storeCount;
+}
+
+
 incrementBtn.addEventListener('click',increment);
+resetBtn.addEventListener('click',reset);
 decrementBtn.addEventListener('click',decrement);
