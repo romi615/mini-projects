@@ -4,6 +4,7 @@ const seconds = document.getElementById("seconds");
 const startBtn = document.getElementById("startBtn");
 const stopBtn = document.getElementById("stopBtn");
 const resetBtn = document.getElementById("resetBtn");
+
 let timer;
 let s = 0;
 let m = 0;
@@ -11,18 +12,19 @@ let h = 0;
 
 
 function startWatch(){
+    clearInterval(timer);
 
 timer = setInterval(()=>{
     if(s < 60){
-        seconds.innerText = ++s;
+        seconds.innerText = "0" + (++s);
     }
     else if (m < 60){
         s = 0;
-        minutes.innerText = ++m;
+        minutes.innerText = "0" + (++m);
     }
     else {
         m = 0;
-        hours.innerText = ++h;
+        hours.innerText = "0" +  (++h);
     }
 }, 1000);
 
