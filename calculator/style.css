@@ -44,3 +44,7 @@ body {
     padding: 10px 15px;
     cursor: pointer;
 }
+
+#equalBtn {
+    grid-column: 3 / 5;
+}
