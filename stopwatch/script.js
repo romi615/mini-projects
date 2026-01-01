@@ -16,15 +16,15 @@ function startWatch(){
 
 timer = setInterval(()=>{
     if(s < 60){
-        seconds.innerText = "0" + (++s);
+        seconds.innerText = s < 10 ? "0" + (s++) : s++;
     }
     else if (m < 60){
         s = 0;
-        minutes.innerText = "0" + (++m);
+        minutes.innerText = m < 10 ? "0" + (m++) : m++;
     }
     else {
         m = 0;
-        hours.innerText = "0" +  (++h);
+        hours.innerText = h < 10 ? "0" + (h++) : h++;
     }
 }, 1000);
 
