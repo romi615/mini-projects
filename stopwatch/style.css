@@ -18,22 +18,43 @@ body {
 .stopwatch {
     min-width: 200px;
     min-height: 100px;
-    border: 1px solid black;
-    border-radius: 3px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    row-gap: 1rem;
 }
 
 .timeUpdationBox{
+    border: 1px solid black;
+    border-radius: 3px;
     width: 80%;
+    min-height: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     font-size: 18px;
 }
 
 .stopwatchBtnBox button {
     padding: 10px 15px;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-radius: 3px;
+}
+
+#startBtn{
+    background: green;
+    color: #fff;
+}
+
+#stopBtn{
+    background: red;
+    color: #fff;
+}
+
+#resetBtn{
+    background: blue;
+    color: #fff;
 }
