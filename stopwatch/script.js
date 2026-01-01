@@ -4,6 +4,7 @@ const seconds = document.getElementById("seconds");
 const startBtn = document.getElementById("startBtn");
 const stopBtn = document.getElementById("stopBtn");
 const resetBtn = document.getElementById("resetBtn");
+let timer;
 let s = 0;
 let m = 0;
 let h = 0;
@@ -11,6 +12,7 @@ let h = 0;
 
 function startWatch(){
 
+timer = setInterval(()=>{
     if(s < 60){
         seconds.innerText = ++s;
     }
@@ -22,12 +24,19 @@ function startWatch(){
         m = 0;
         hours.innerText = ++h;
     }
+}, 1000);
+
+    
 
     // console.log(timer);
 }
 
-startBtn.addEventListener('click', ()=>{
-    setInterval(startWatch, 100);
-})
 
+function stopWatch(){
+    clearInterval(timer);
+}
+
+startBtn.addEventListener('click', startWatch);
+
+stopBtn.addEventListener('click', stopWatch);
 
