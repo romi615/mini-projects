@@ -41,3 +41,10 @@ function handleNumber(value){
 }
 
 
+function handleOperator(value){
+    if(firsNumber === "") return;
+
+    operator = value;
+}
+
+
