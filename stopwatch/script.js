@@ -36,7 +36,20 @@ function stopWatch(){
     clearInterval(timer);
 }
 
+function resetWatch(){
+    clearInterval(timer);
+    s = 0;
+    m = 0;
+    h = 0;
+    seconds.innerText = s + "0";
+    minutes.innerText = m + "0";
+    hours.innerText = h+"0";
+
+}
+
 startBtn.addEventListener('click', startWatch);
 
 stopBtn.addEventListener('click', stopWatch);
+resetBtn.addEventListener('click', resetWatch);
+
 
