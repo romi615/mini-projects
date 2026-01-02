@@ -26,6 +26,8 @@ function addTask(){
 
     todoList.appendChild(list);
 
+    userInput.value = "";
+
 }
 
 
