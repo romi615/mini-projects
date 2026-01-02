@@ -33,6 +33,7 @@ body {
     /* border: 0; */
     outline: 0;
     padding: 5px;
+    font-size: 18px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     overflow: hidden;
@@ -60,6 +61,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+    text-transform: uppercase;
 }
 
 .todo-list-container ul li span {
@@ -81,6 +83,7 @@ body {
     padding: 2px 3px;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 15px;
 }
 
 .task-text {
