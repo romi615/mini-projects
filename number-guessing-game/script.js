@@ -10,6 +10,11 @@ function userGuess(){
     const input = Number(userInput.value);
     // console.log(input)
 
+    if(userInput.value === ""){
+        alert("please, enter the number!");
+        return;
+    }
+
     if(input > randomNumber){
         feedbackBox.innerHTML = "high";
     } else if(input < randomNumber){
