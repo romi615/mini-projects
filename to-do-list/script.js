@@ -2,13 +2,7 @@ const userInput = document.getElementById("userInput")
 const addTaskBtn = document.getElementById("addTaskBtn")
 const todoList = document.getElementById("todo-list")
 
-// function markTaskCompleted(){
 
-// }
-
-function removeTask(event){
-    // console.log(event.target.parentElement);
-    }
 
 function addTask(){
 
@@ -21,7 +15,6 @@ function addTask(){
 
     const span = document.createElement('span')
     span.innerText = userInput.value;
-    // span.classList.add('task-text')
     list.appendChild(span)
 
     const button = document.createElement('button')
@@ -29,9 +22,7 @@ function addTask(){
     button.classList.add('task-btn')
     list.appendChild(button);
 
-    // button.addEventListener('click', (e)=>{
-    //     removeTask(e);
-    // });
+    
 
     todoList.appendChild(list);
 
