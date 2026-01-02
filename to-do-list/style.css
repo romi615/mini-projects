@@ -92,4 +92,5 @@ body {
 
 .task-text {
     text-decoration: line-through;
+    color: gray;
 }
