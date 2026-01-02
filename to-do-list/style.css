@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list-container{
+    min-width: 300px;
+    min-height: 200px;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.inputBox{
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+}
+
+.inputBox input {
+    /* width: 80%; */
+    flex: 1;
+}
+
+/* .inputBox button {
+    width: 20%;
+} */
+
+.todo-list-container ul li {
+    list-style-type: none;
+}
