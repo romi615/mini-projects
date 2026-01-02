@@ -71,3 +71,7 @@ body {
     border-radius: 3px;
     cursor: pointer;
 }
+
+.task-text {
+    text-decoration: line-through;
+}
