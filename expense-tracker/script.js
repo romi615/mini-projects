@@ -2,7 +2,7 @@
 const title = document.getElementById("expenseName")
 const amount = document.getElementById("amountName")
 const addBtn = document.getElementById("addBtn")
-const removeBtn = document.getElementById("removeBtn")
+const removeBtn = document.querySelector(".removeBtn")
 const expenseList = document.getElementById("expense-list")
 
 
@@ -16,8 +16,9 @@ function deleteExpense(id) {
 
 
 function removeExpense(e){
-    const id = Number(e.target.id);
-    deleteExpense(id);
+    console.log(e)
+    // const id = Number(e.target.id);
+    // deleteExpense(id);
 }
 
 function setExpense(expenses) {
@@ -63,7 +64,14 @@ function renderExpense(){
 
         button.innerText = "Remove"
         button.dataset.id = expense.id;
+        button.classList.add("removeBtn");
         list.appendChild(button);
+
+        removeBtn.addEventListener('click', (e)=>{
+    // removeExpense(e);
+    console.log(e);
+})
+
         
 
         expenseList.appendChild(list);
@@ -95,7 +103,5 @@ addBtn.addEventListener('click', ()=>{
     amount.value = "";
 })
 
-removeBtn.addEventListener('click', (e)=>{
-    removeExpense(e);
-})
+
 
