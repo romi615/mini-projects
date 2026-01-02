@@ -46,4 +46,17 @@ body {
     padding: 5px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.expenseBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 131px;
+}
+
+#removeBtn {
+    padding: 5px;
 }
