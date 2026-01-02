@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.expense-container {
+    border: 1px solid #000;
+    min-width: 500px;
+    min-height: 200px;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.inputBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 5px;
+    margin-bottom: 10px;
+}
+
+.inputBox button {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#expenseName, #amountName{
+    flex: 1;
+    padding: 5px;
+}
+
+.expense-container ul li {
+    list-style: none;
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
