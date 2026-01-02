@@ -2,9 +2,23 @@
 const title = document.getElementById("expenseName")
 const amount = document.getElementById("amountName")
 const addBtn = document.getElementById("addBtn")
+const removeBtn = document.getElementById("removeBtn")
 const expenseList = document.getElementById("expense-list")
 
 
+function deleteExpense(id) {
+    const expenses = getExpense();
+    expenses = expenses.filter((exp.id) !== id);
+    setExpense(expenses);
+    renderExpense()
+
+}
+
+
+function removeExpense(e){
+    const id = Number(e.target.id);
+    deleteExpense(id);
+}
 
 function setExpense(expenses) {
     localStorage.setItem('expenses', JSON.stringify(expenses));
@@ -21,19 +35,36 @@ function renderExpense(){
     
     expenses.forEach(expense => {
         const list = document.createElement('li');
+        const div = document.createElement('div');
+        div.classList.add("expenseBox")
+        div.style.textTransform = "uppercase"
 
-        if(expense.title !== ""){
+        const button = document.createElement('button');
+
+        div.innerHTML = `<span>${expense.title}</span><span>$${expense.amount}</span>`
+
+
+        /*if(expense.title !== ""){
             const span = document.createElement('span');
             span.innerText = expense.title;
-            list.appendChild(span)
+            div.appendChild(span);
 
         }
 
         if(expense.amount !== "") {
+            // div.innerHTML = `<span>$${expense.amount}</span>`
             const span = document.createElement('span');
             span.innerText = expense.amount;
-            list.appendChild(span)
-        }
+            div.appendChild(span);
+        }*/
+
+        list.appendChild(div)
+
+
+        button.innerText = "Remove"
+        button.dataset.id = expense.id;
+        list.appendChild(button);
+        
 
         expenseList.appendChild(list);
 
@@ -62,5 +93,9 @@ addBtn.addEventListener('click', ()=>{
     addExpense(title.value, amount.value);
     title.value = "";
     amount.value = "";
+})
+
+removeBtn.addEventListener('click', (e)=>{
+    removeExpense(e);
 })
 
