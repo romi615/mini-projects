@@ -12,6 +12,19 @@ function getNotes(){
     return data ? JSON.parse(data) : []
 }
 
+function deleteNotes(id){
+    let notes = getNotes();
+
+    notes = notes.filter((note)=> note.id !== id);
+    setNotes(notes);
+    renderNotes();
+}
+
+// function removeNotes(event){
+//     // console.log(Number(event.target.dataset.id))
+
+// }
+
 function renderNotes(){
     const notes = getNotes();
 
@@ -19,12 +32,18 @@ function renderNotes(){
 
     notes.forEach((note)=>{
             const list = document.createElement('li');
+            list.innerHTML = `<div><h3>${note.title}</h3>
+            <p>${note.content}</p></div>`
+            
+            const button = document.createElement('button');
+            button.innerText = "Remove"
+            button.dataset.id = note.id
+            list.appendChild(button)
 
-            list.innerHTML = `<h3>${note.title}</h3>
-                <p>${note.content}</p>`
+    
+            notesList.appendChild(list);
 
 
-                notesList.appendChild(list);
     })
 }
 
@@ -53,3 +72,14 @@ notesBtn.addEventListener('click', ()=>{
     content.value = ""
 })
 
+notesList.addEventListener('click', (e)=>{
+    // removeNotes(e)
+    // console.log(event.target.dataset.id)
+        deleteNotes(Number(e.target.dataset.id));
+
+})
+
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    renderNotes();
+})
