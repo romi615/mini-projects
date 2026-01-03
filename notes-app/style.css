@@ -33,6 +33,11 @@ body{
     padding: 5px;
 }
 
+.notes-app textarea {
+    padding: 5px;
+    resize: unset;
+}
+
 .notes-app button {
     padding: 5px;
     cursor: pointer;
