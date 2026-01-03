@@ -37,3 +37,12 @@ body{
     padding: 5px;
     cursor: pointer;
 }
+
+.green{
+    background: lightgreen;
+    
+}
+
+.red{
+    background: lightcoral;
+}
