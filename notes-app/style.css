@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes-container{
+    border: 1px solid black;
+    min-width: 400px;
+    min-height: 200px;
+    padding: 10px;
+}
+
+.notes-app {
+    margin-bottom: 10px;
+}
+
+.notes-app input {
+    padding: 5px;
+}
+
+.notes-app button {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.notes-list li {
+    list-style-type: none;
+    border: 1px solid black;
+    padding: 5px;
+}
