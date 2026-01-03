@@ -31,10 +31,18 @@ body{
     flex-direction: column;
     row-gap: 0.8rem
     ;
+    margin-bottom: 10px;
 }
 
 .quiz-options button {
     padding: 5px;
+    cursor: pointer;
+}
+
+.quiz-next-btn button {
+    padding: 5px;
+    margin: 0 auto;
+    display: block;
     cursor: pointer;
 }
 
