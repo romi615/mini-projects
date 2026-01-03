@@ -2,38 +2,58 @@ const questions = [
   {
     question: "Who is the prime minister of india in 2014?",
     answer: [
-      { option1: "Indira Gandhi", isCorrect : false},
-      { option2: "Rajiv Gandhi" ,isCorrect : false},
-      { option3: "Manmohan Singh" ,isCorrect : false},
-      { option4: "Narendra Modi" ,isCorrect : true},
+      { option: "Indira Gandhi", isCorrect : false},
+      { option: "Rajiv Gandhi" ,isCorrect : false},
+      { option: "Manmohan Singh" ,isCorrect : false},
+      { option: "Narendra Modi" ,isCorrect : true},
     ],
   },
 
   {
     question: "Who painted the Mona Lisa?",
     answer: [
-      { option1: "Vincent van Gogh", isCorrect : false},
-      { option2: "Pablo Picasso" ,isCorrect : false},
-      { option3: "Leonardo da Vinci" ,isCorrect : true},
-      { option4: "Claude Monet" ,isCorrect : false},
+      { option: "Vincent van Gogh", isCorrect : false},
+      { option: "Pablo Picasso" ,isCorrect : false},
+      { option: "Leonardo da Vinci" ,isCorrect : true},
+      { option: "Claude Monet" ,isCorrect : false},
     ],
   },
 
   {
     question: "What is the capital of Japan?",
     answer: [
-      { option1: "Beijing", isCorrect : false},
-      { option2: "Tokyo" ,isCorrect : true},
-      { option3: "Seoul" ,isCorrect : false},
-      { option4: "Bangkok" ,isCorrect : false},
+      { option: "Beijing", isCorrect : false},
+      { option: "Tokyo" ,isCorrect : true},
+      { option: "Seoul" ,isCorrect : false},
+      { option: "Bangkok" ,isCorrect : false},
     ],
   },
 ];
 
 const question = document.getElementById('question');
-const options = document.querySelectorAll("option");
+const options = document.querySelectorAll(".option");
 
+let questionCount = 0;
 
-function showQuiz(){
+function showQuestion(){
 
+    let answerCount = 0;
+
+    question.innerText = questions[questionCount].question;
+
+    options.forEach(option=>{
+        option.innerText = questions[questionCount].answer[answerCount++].option;
+        // console.log(option)
+        option.addEventListener('click', (e)=>{
+            console.log(e.target);
+        })
+    })
+
+    questionCount++;
 }
+
+
+
+showQuestion();
+// showQuestion();
+// showQuestion();
