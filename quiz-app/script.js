@@ -33,34 +33,3 @@ const questions = [
 const question = document.getElementById("question");
 const options = document.querySelectorAll(".option");
 const nextBtn = document.getElementById("nextBtn");
-
-let questionCount = 0;
-
-function showQuestion() {
-  let answerCount = 0;
-
-  if (questionCount < questions.length) {
-    question.innerText = questions[questionCount].question;
-
-    options.forEach((option) => {
-      option.innerText = questions[questionCount].answer[answerCount].option;
-      option.dataset.id = questions[questionCount].answer[answerCount].isCorrect;
-      answerCount++;
-    });
-
-    
-    questionCount++;
-  } else {
-    startQuiz();
-  }
-}
-
-nextBtn.addEventListener("click", () => {
-  showQuestion();
-});
-// showQuestion();
-// showQuestion();
-
-function startQuiz() {
-  questionCount = 0;
-}
