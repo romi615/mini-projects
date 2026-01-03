@@ -8,11 +8,11 @@ function setNotes(notes){
 
 function getNotes(){
     const data = localStorage.getItem("notes")
-    data ? JSON.parse(data) : []
-    return data;
+    return data ? JSON.parse(data) : []
 }
 
 function addNotes(title, content){
+
 
     const notes = getNotes();
 
