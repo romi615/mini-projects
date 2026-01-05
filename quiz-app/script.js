@@ -33,3 +33,58 @@ const questions = [
 const question = document.getElementById("question");
 const options = document.querySelectorAll(".option");
 const nextBtn = document.getElementById("nextBtn");
+const restartQuizBtn = document.getElementById("restartQuizBtn");
+
+let currentQuestionIndex = 0;
+
+function showQuestion() {
+  
+    let currentQuestion = questions[currentQuestionIndex];
+    question.innerText = currentQuestion.question;
+
+
+    options.forEach((option, index) => {
+      console.log(index);
+      option.innerText = currentQuestion.answer[index].option;
+      option.dataset.correct = currentQuestion.answer[index].isCorrect;
+
+      // reset colors
+      option.classList.remove("green", "red");
+    });
+}
+
+  // one time event listener
+  options.forEach((option)=>{
+    option.addEventListener('click',(e)=>{
+      let isCorrect = e.target.dataset.correct === "true";
+
+      if(isCorrect){
+        e.target.classList.add('green')
+      }
+        else {
+          e.target.classList.add('red')
+        }
+    })
+  })
+
+  function startQuiz(){
+
+  }
+
+
+nextBtn.addEventListener("click", () => {
+  currentQuestionIndex++;
+
+  if(currentQuestionIndex < questions.length){
+    showQuestion();
+  }
+  else {
+    question.innerText = "Quiz finished!"
+    options.forEach((option)=>(option.style.display ="none"));
+    nextBtn.style.display = "none"
+    restartQuizBtn.style.display = 'block';
+  }
+});
+
+// load first question
+showQuestion();
