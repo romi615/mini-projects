@@ -2,6 +2,8 @@ const title = document.getElementById("expenseName");
 const amount = document.getElementById("amountName");
 const addBtn = document.getElementById("addBtn");
 const expenseList = document.getElementById("expense-list");
+const totalExpense = document.getElementById("totalExpense");
+
 
 
 function setExpense(expenses) {
@@ -15,7 +17,12 @@ function getExpense() {
 
 
 function calculateTotalExpense(){
+  let expense = getExpense()
+  expense = expense.reduce((acc, curr)=>{
+    return acc+curr.amount;
+  }, 0)
 
+  totalExpense.innerText = `Total: $${expense}`;
 }
 
 function deleteExpense(id) {
@@ -47,7 +54,9 @@ function renderExpense() {
     list.appendChild(button);
     expenseList.appendChild(list);
   });
-  
+
+  calculateTotalExpense();
+
 }
 
 function addExpense(title, amount) {
@@ -77,3 +86,4 @@ expenseList.addEventListener('click', (e)=>{
 document.addEventListener('DOMContentLoaded', ()=>{
     renderExpense()
 })
+
