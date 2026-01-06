@@ -3,20 +3,26 @@ const amount = document.getElementById("amountName");
 const addBtn = document.getElementById("addBtn");
 const expenseList = document.getElementById("expense-list");
 
+
+function setExpense(expenses) {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+}
+
+function getExpense() {
+    const data = localStorage.getItem("expenses");
+    return data ? JSON.parse(data) : [];
+}
+
+
+function calculateTotalExpense(){
+
+}
+
 function deleteExpense(id) {
   let expenses = getExpense();
   expenses = expenses.filter(exp=> exp.id !== id);
   setExpense(expenses);
   renderExpense();
-}
-
-function setExpense(expenses) {
-  localStorage.setItem("expenses", JSON.stringify(expenses));
-}
-
-function getExpense() {
-  const data = localStorage.getItem("expenses");
-  return data ? JSON.parse(data) : [];
 }
 
 function renderExpense() {
@@ -41,6 +47,7 @@ function renderExpense() {
     list.appendChild(button);
     expenseList.appendChild(list);
   });
+  
 }
 
 function addExpense(title, amount) {
