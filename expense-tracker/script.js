@@ -4,30 +4,27 @@ const addBtn = document.getElementById("addBtn");
 const expenseList = document.getElementById("expense-list");
 const totalExpense = document.getElementById("totalExpense");
 
-
-
 function setExpense(expenses) {
-    localStorage.setItem("expenses", JSON.stringify(expenses));
+  localStorage.setItem("expenses", JSON.stringify(expenses));
 }
 
 function getExpense() {
-    const data = localStorage.getItem("expenses");
-    return data ? JSON.parse(data) : [];
+  const data = localStorage.getItem("expenses");
+  return data ? JSON.parse(data) : [];
 }
 
-
-function calculateTotalExpense(){
-  let expense = getExpense()
-  expense = expense.reduce((acc, curr)=>{
-    return acc+curr.amount;
-  }, 0)
+function calculateTotalExpense() {
+  let expense = getExpense();
+  expense = expense.reduce((acc, curr) => {
+    return acc + curr.amount;
+  }, 0);
 
   totalExpense.innerText = `Total: $${expense}`;
 }
 
 function deleteExpense(id) {
   let expenses = getExpense();
-  expenses = expenses.filter(exp=> exp.id !== id);
+  expenses = expenses.filter((exp) => exp.id !== id);
   setExpense(expenses);
   renderExpense();
 }
@@ -43,7 +40,6 @@ function renderExpense() {
     div.classList.add("expenseBox");
     div.style.textTransform = "uppercase";
 
-    
     div.innerHTML = `<span>${expense.title}</span><span>$${expense.amount}</span>`;
     list.appendChild(div);
 
@@ -56,7 +52,6 @@ function renderExpense() {
   });
 
   calculateTotalExpense();
-
 }
 
 function addExpense(title, amount) {
@@ -79,11 +74,10 @@ addBtn.addEventListener("click", () => {
   amount.value = "";
 });
 
-expenseList.addEventListener('click', (e)=>{
-    deleteExpense(Number(e.target.dataset.id));
-})
+expenseList.addEventListener("click", (e) => {
+  deleteExpense(Number(e.target.dataset.id));
+});
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    renderExpense()
-})
-
+document.addEventListener("DOMContentLoaded", () => {
+  renderExpense();
+});
