@@ -1,5 +1,6 @@
 const quote = document.getElementById("quote");
 const author = document.getElementById("author-name");
+const quoteBtn = document.getElementById("quoteBtn")
 
 
 async function randomQuoteGenerator() {
@@ -10,4 +11,5 @@ async function randomQuoteGenerator() {
   author.innerText = data[0].author;
 }
 
-randomQuoteGenerator();
+quoteBtn.addEventListener('click', randomQuoteGenerator)
+

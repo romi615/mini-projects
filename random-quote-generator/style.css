@@ -9,24 +9,48 @@ body {
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+h1{
+    margin-bottom: 1rem;
+}
+
 .quote-container {
-    border: 1px solid black;
-    padding: 5px;
     max-width: 500px;
     min-height: 150px;
 }
 
 .random-quote {
+        border: 1px solid black;
+    padding: 5px;
+
     min-height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+.random-quote #quote{
+    font-size: 20px;
+}
+
 .author-box {
     align-self: flex-end;
+    font-size: 18px;
+}
+
+.quote-container button {
+    padding: 5px 8px;
+    display: block;
+    margin: 10px auto;
+    background: blue;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 3px;
 }
