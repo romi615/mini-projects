@@ -60,3 +60,10 @@ body {
 #removeBtn {
     padding: 5px;
 }
+
+.total-expense-box {
+    border: 1px solid black;
+    padding: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
