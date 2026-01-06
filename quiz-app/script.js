@@ -68,7 +68,11 @@ function showQuestion() {
   })
 
   function startQuiz(){
-
+    currentQuestionIndex = 0;
+    options.forEach((option)=>(option.style.display ="block"));
+    nextBtn.style.display = "block"
+    restartQuizBtn.style.display = 'none';
+    showQuestion();
   }
 
 
@@ -83,6 +87,9 @@ nextBtn.addEventListener("click", () => {
     options.forEach((option)=>(option.style.display ="none"));
     nextBtn.style.display = "none"
     restartQuizBtn.style.display = 'block';
+    restartQuizBtn.addEventListener('click',()=>{
+      startQuiz();
+    })
   }
 });
 
