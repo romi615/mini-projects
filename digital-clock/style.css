@@ -16,6 +16,7 @@ body {
 
 .main-heading {
   margin-bottom: 1rem;
+  color: #4b0082;
 }
 
 .digital-clock {
@@ -25,7 +26,9 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  color: #494949;
 }
 
 .timeNotationBox,
