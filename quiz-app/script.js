@@ -38,58 +38,58 @@ const restartQuizBtn = document.getElementById("restartQuizBtn");
 let currentQuestionIndex = 0;
 
 function showQuestion() {
-  
-    let currentQuestion = questions[currentQuestionIndex];
-    question.innerText = currentQuestion.question;
+  let currentQuestion = questions[currentQuestionIndex];
+  question.innerText = currentQuestion.question;
 
+  options.forEach((option, index) => {
+    // console.log(index);
+    option.innerText = currentQuestion.answer[index].option;
+    option.dataset.correct = currentQuestion.answer[index].isCorrect;
 
-    options.forEach((option, index) => {
-      console.log(index);
-      option.innerText = currentQuestion.answer[index].option;
-      option.dataset.correct = currentQuestion.answer[index].isCorrect;
-
-      // reset colors
-      option.classList.remove("green", "red");
-    });
+    // reset colors
+    option.classList.remove("green", "red");
+  });
 }
 
-  // one time event listener
-  options.forEach((option)=>{
-    option.addEventListener('click',(e)=>{
-      let isCorrect = e.target.dataset.correct === "true";
-
-      if(isCorrect){
-        e.target.classList.add('green')
+// one time event listener
+options.forEach((option) => {
+  option.addEventListener("click", () => {
+    options.forEach((opt) => {
+      if (opt.dataset.correct === "true") {
+        opt.classList.add("green");
+      } else {
+        opt.classList.add("red");
       }
-        else {
-          e.target.classList.add('red')
-        }
-    })
-  })
+      opt.style.pointerEvents = "none";
+      // opt.disabled = true;
+    });
+  });
+});
 
-  function startQuiz(){
-    currentQuestionIndex = 0;
-    options.forEach((option)=>(option.style.display ="block"));
-    nextBtn.style.display = "block"
-    restartQuizBtn.style.display = 'none';
-    showQuestion();
-  }
-
+function startQuiz() {
+  currentQuestionIndex = 0;
+  options.forEach((option) => (option.style.display = "block"));
+  nextBtn.style.display = "block";
+  restartQuizBtn.style.display = "none";
+  showQuestion();
+}
 
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
 
-  if(currentQuestionIndex < questions.length){
+  if (currentQuestionIndex < questions.length) {
     showQuestion();
-  }
-  else {
-    question.innerText = "Quiz finished!"
-    options.forEach((option)=>(option.style.display ="none"));
-    nextBtn.style.display = "none"
-    restartQuizBtn.style.display = 'block';
-    restartQuizBtn.addEventListener('click',()=>{
+    options.forEach((opt) => {
+      opt.style.pointerEvents = "auto";
+    });
+  } else {
+    question.innerText = "Quiz finished!";
+    options.forEach((option) => (option.style.display = "none"));
+    nextBtn.style.display = "none";
+    restartQuizBtn.style.display = "block";
+    restartQuizBtn.addEventListener("click", () => {
       startQuiz();
-    })
+    });
   }
 });
 
