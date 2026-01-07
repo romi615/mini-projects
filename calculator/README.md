@@ -13,7 +13,7 @@ A basic calculator built with a simple UI that performs addition, subtraction, m
 
 ## Demo
 
-![Calculator][calculator.png]
+![Calculator](calculator.png)
 
 ## How to Use
 
