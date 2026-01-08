@@ -27,7 +27,7 @@ This app fetches real-time weather data using an external API and displays curre
 ## 📸 Screenshot
 
 ```md
-![Weather App Screenshot](images/weather-app.png)
+![Weather App Screenshot](/images/weather-app.png)
 
 ## 🔑 How It Works
 
