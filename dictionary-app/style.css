@@ -37,9 +37,19 @@ body{
 }
 .meaningBox {
     display: flex;
-    align-items: center;
+    /* justify-content: space-between; */
+    /* align-items: center; */
     margin-bottom: 10px;
+    text-transform: uppercase;
+    column-gap: 10px;
+}
+#word{
+    font-weight: bold;
 }
 .meaningBox #meaning{
-    flex: 1;
+    /* flex: 1; */
+}
+.exampleBox {
+        text-transform: uppercase;
+
 }
