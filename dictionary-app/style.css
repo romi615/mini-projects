@@ -53,3 +53,7 @@ body{
         text-transform: uppercase;
 
 }
+
+.exampleBox p span {
+    font-weight: bold;
+}
