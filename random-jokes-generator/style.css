@@ -14,8 +14,13 @@ body {
     align-items: center;
 }
 
+.random-jokes-container{
+    width: 40%;
+}
+
 .random-jokes{
     border: 1px solid #000;
+    width: 100%;
     max-width: 300px;
     min-height: 100px;
     padding: 5px 7px;
@@ -24,7 +29,12 @@ body {
 
 .random-jokes p {
     text-transform: uppercase;
-    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.random-jokes p span {
+        font-weight: bolder;
+
 }
 
 .random-jokes-container button {
