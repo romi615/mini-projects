@@ -1,112 +1,96 @@
+/* ==========================
+   DOM REFERENCES
+========================== */
 const buttons = document.querySelectorAll(".btn");
-const input = document.getElementById("userInput");
+const display = document.getElementById("display");
 
-let firstNumber = "";
-let secondNumber = "";
-let operator = "";
+/* ==========================
+   STATE
+========================== */
+let currentValue = "";
+let previousValue = "";
+let operator = null;
 
-let experession = "";
-
+/* ==========================
+   EVENT HANDLING
+========================== */
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    const value = button.innerText;
+    const value = button.dataset.value;
+    const action = button.dataset.action;
 
-    if (!isNaN(value)) {
-      handleNumber(value);
-    } else if (
-      value === "+" ||
-      value === "-" ||
-      value === "X" ||
-      value === "/" ||
-      value === "%"
-    ) {
-      handleOperator(value);
-    } else if (value === "=") {
-      calculate();
-    } else if (value === "CL") {
-      clearAllInput();
-    } else if (value === "DEL") {
-      deleteInputOneByOne();
+    if (value) {
+      if (isNumber(value)) handleNumber(value);
+      else if (isOperator(value)) handleOperator(value);
     }
+
+    if (action === "calculate") calculate();
+    if (action === "clear") clearAll();
+    if (action === "delete") deleteLast();
   });
 });
 
+/* ==========================
+   LOGIC
+========================== */
 function handleNumber(value) {
-  if (operator === "") {
-    firstNumber += value;
-    input.value = firstNumber;
-  } else {
-    secondNumber += value;
-    input.value = secondNumber;
-  }
+  currentValue += value;
+  display.value = currentValue;
 }
 
 function handleOperator(value) {
-  if (firstNumber === "") return;
+  if (!currentValue && !previousValue) return;
+
+  if (previousValue && currentValue) calculate();
 
   operator = value;
+  previousValue = currentValue || previousValue;
+  currentValue = "";
 }
 
 function calculate() {
-  if (firstNumber === "" || secondNumber === "" || operator === "") return;
+  if (!previousValue || !currentValue || !operator) return;
 
-  const num1 = Number(firstNumber);
-  const num2 = Number(secondNumber);
-
+  const num1 = Number(previousValue);
+  const num2 = Number(currentValue);
   let result;
 
   switch (operator) {
-    case "+":
-      result = num1 + num2;
-      break;
-    case "-":
-      result = num1 - num2;
-      break;
-    case "X":
-      result = num1 * num2;
-      break;
+    case "+": result = num1 + num2; break;
+    case "-": result = num1 - num2; break;
+    case "*": result = num1 * num2; break;
     case "/":
-      if (num2 === 0) {
-        input.value = "Error";
-        reset();
-        return;
-      }
+      if (num2 === 0) return clearAll("Error");
       result = num1 / num2;
       break;
-    case "%":
-      result = num1 - num1 * (num2 / 100);
-      break;
+    case "%": result = (num1 * num2) / 100; break;
   }
 
-  input.value = result;
-  firstNumber = result.toString();
-  secondNumber = "";
-  operator = "";
+  display.value = result;
+  previousValue = result.toString();
+  currentValue = "";
+  operator = null;
 }
 
-function clearAllInput() {
-  input.value = "0";
-  firstNumber = "";
-  secondNumber = "";
-  operator = "";
+/* ==========================
+   UTILITIES
+========================== */
+function clearAll(message = "0") {
+  currentValue = "";
+  previousValue = "";
+  operator = null;
+  display.value = message;
 }
 
-function deleteInputOneByOne() {
-  // console.log( input.value)
-  let i = 1;
-
-  let deleteInput = input.value;
-  // console.log(deleteInput.length)
-
-  let newDeleteInput = deleteInput.slice(0, deleteInput.length - i++);
-  reset();
-  handleNumber(newDeleteInput);
-  // console.log(newDeleteInput)
-  input.value = newDeleteInput > 0 ? newDeleteInput : "0";
+function deleteLast() {
+  currentValue = currentValue.slice(0, -1);
+  display.value = currentValue || "0";
 }
 
-function reset() {
-  firstNumber = "";
-  secondNumber = "";
-  operator = "";
+function isNumber(value) {
+  return !isNaN(value);
+}
+
+function isOperator(value) {
+  return ["+", "-", "*", "/", "%"].includes(value);
 }
