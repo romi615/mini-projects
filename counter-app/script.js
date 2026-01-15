@@ -4,42 +4,47 @@ const incrementBtn = document.getElementById("incrementBtn");
 const resetBtn = document.getElementById("resetBtn");
 const decrementBtn = document.getElementById("decrementBtn");
 
-// declare a variable storeCount to store counting
-let storeCount = localStorage.getItem("storeCount")
-  ? Number(localStorage.getItem("storeCount"))
-  : 0;
+// declare a variable currentCount  to store counting
+const savedCount = localStorage.getItem("currentCount ");
+let currentCount = savedCount ? Number(savedCount) : 0;
 
-  // intial value
-count.innerText = storeCount;
+// intial value
+count.textContent = currentCount;
 
 function saveCount() {
-  localStorage.setItem("storeCount", storeCount);
+  localStorage.setItem("currentCount ", currentCount);
+}
+
+function updateUI() {
+  count.innerText = currentCount;
 }
 
 // function to increment
 function increment() {
-  storeCount++;
-  count.innerText = storeCount;
+  currentCount++;
+  updateUI();
   saveCount();
 }
 
 // function to decrement
 function decrement() {
-  if (storeCount > 0) {
-    storeCount--;
-    count.innerText = storeCount;
+  if (currentCount > 0) {
+    currentCount--;
+    updateUI();
+    saveCount();
   }
-  saveCount();
 }
 
 // function to reset
 function reset() {
-  storeCount = 0;
-  count.innerText = storeCount;
+  currentCount = 0;
+  updateUI();
   saveCount();
 }
 
 // attach event handlers with buttons(increment, reset, and decrement)
-incrementBtn.addEventListener("click", increment);
-resetBtn.addEventListener("click", reset);
-decrementBtn.addEventListener("click", decrement);
+if (incrementBtn && resetBtn && decrementBtn) {
+  incrementBtn.addEventListener("click", increment);
+  resetBtn.addEventListener("click", reset);
+  decrementBtn.addEventListener("click", decrement);
+}
