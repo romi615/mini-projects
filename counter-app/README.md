@@ -7,6 +7,7 @@ A simple counter application that allows users to increase, decrease, and reset 
 - Decrement counter
 - Reset counter to zero
 - Instant UI update on button click
+- Persistent storage using `localStorage`
 
 ## Tech Stack
 - HTML
@@ -17,7 +18,6 @@ A simple counter application that allows users to increase, decrease, and reset 
 1. Clone the repository
 2. Open `index.html` in any modern browser
 
-_No build tools or dependencies required._
 
 ## Folder Structure
 
@@ -32,7 +32,6 @@ counter-app/
 │── README.md
 
 
-
 ## How It Works
 - The counter value is stored in a JavaScript variable
 - Button click events update the value
@@ -43,8 +42,11 @@ counter-app/
 - Event listeners
 - Keeping logic simple and readable
 
-## Future Improvements
-- Save counter value using `localStorage`
+## Improvements
+- Centralized UI update function for maintainability
+- Safety checks for DOM element existence
+- Use of textContent instead of innerText for better performance
+- Proper `localStorage` handling to avoid redundant reads
 
 ## Author
 Romi Mawandia
