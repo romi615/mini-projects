@@ -53,7 +53,6 @@ Romi Mawandia
 
 
 ### Links
-```md
 [GitHub](https://github.com/romi615/mini-projects/tree/main/counter-app)
 
 ## Screenshot
