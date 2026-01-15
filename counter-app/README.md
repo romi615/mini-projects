@@ -58,5 +58,5 @@ Romi Mawandia
 
 ## Screenshot
 
-![Counter App Screenshot](images/counter-app.png)
+![Counter App Screenshot](/counter-app/images/counter-app.png)
 
