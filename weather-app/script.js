@@ -1,7 +1,7 @@
 const input = document.getElementById("userInput");
 const searchBtn = document.getElementById("searchBtn");
 
-const apiKey = "8cb1b8b3bdfe2861513353bb3ba967d0";
+const apiKey = "";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
 async function checkWeather(city) {
