@@ -24,7 +24,6 @@
 
 fetch("https://api.api-ninjas.com/v1/dictionary?word=expose", {
   headers: {
-    "X-Api-Key": "4SRYNMqH+yPMtslE0EEmHg==odPTZv3b0FcBKICA"
   }
 })
 .then(res => res.json())
