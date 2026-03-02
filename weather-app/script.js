@@ -1,17 +1,14 @@
 const input = document.getElementById("userInput");
 const searchBtn = document.getElementById("searchBtn");
 
-const apiKey = "8cb1b8b3bdfe2861513353bb3ba967d0";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
 async function checkWeather(city) {
   const response = await fetch(apiUrl + `&q=${city}&appid=${apiKey}`);
   let data = await response.json();
-  console.log(data);
 
   if (response.status === 404) {
     document.querySelector(".error").style.display = "block";
-    // document.querySelector(".weather").style.display = "none";
   } else {
     document.querySelector(".temp").innerHTML =
       Math.round(data.main.temp) + "°c";
@@ -33,12 +30,11 @@ async function checkWeather(city) {
       document.querySelector(".weather-icon").src = "images/snow.png";
     }
     document.querySelector(".error").style.display = "none";
-    // document.querySelector(".weather").style.display = "block";
   }
 }
 
 searchBtn.addEventListener("click", () => {
   checkWeather(input.value);
   input.value = "";
-  document.querySelector('.weather').classList.add('show')
+  document.querySelector(".weather").classList.add("show");
 });
